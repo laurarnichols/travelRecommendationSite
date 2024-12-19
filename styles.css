@@ -1,0 +1,347 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('city.jpg') no-repeat center center fixed; /* Add 'fixed' for full coverage */
+    background-size: cover; /* Ensures the image fills the screen */
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+  
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: linear-gradient(to right, rgba(91, 120, 186, 0.8), rgba(0, 128, 128, 0));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(to right, rgba(186, 126, 106, 0.9), rgba(221, 148, 108,0.9));
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-style: italic;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: lightgray;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: black;
+  background: white;
+  width: 200px;
+}
+
+.search-input::placeholder {
+  color: rgba(91, 120, 186, 0.7);
+}
+
+.search-button,
+.clear-button {
+  border: none;
+  background: rgba(91, 120, 186, 1.0);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-button:hover,
+.clear-button:hover {
+  opacity: 0.8;
+}
+
+#main-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-top: 80px; /* Ensure it doesn't overlap with the navbar */
+  padding: 20px 100px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1rem;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.book-now {
+  background: rgb(234, 164, 131);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book-now:hover {
+  opacity: 0.8;
+}
+
+/* About Us Header */
+.about-header {
+  text-align: left;
+  margin: 100px 100px;
+  padding-top: 20px;
+  font-family: 'Helvetica', sans-serif;
+  color: white;
+}
+
+.about-header h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Welcome Box */
+.welcome-box {
+  background: rgba(234, 164, 131,0.9);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 80%;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Team Section */
+.team-section {
+  margin: 40px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  font-family: 'Helvetica', sans-serif;
+  color: white;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  text-align: left;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Team Member Boxes */
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.team-box {
+  background: rgba(91, 120, 186, 1);
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(25% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.team-box h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.team-box p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.team-box p em {
+  font-style: italic;
+}
+
+/* Container for the entire Contact Us section */
+.contact-container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+}
+  
+/* Left side for the header */
+.contact-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.contact-left h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+  
+/* Right side for the form */
+.contact-right {
+    padding-top: 60px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+/* Form and input styling */
+.contact-form {
+    background-color: rgba(91, 120, 186, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px; /* To avoid stretching on larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+/* Input Group Styling */
+.input-group {
+    margin-bottom: 20px;
+}
+  
+.input-group label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+  
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+  
+.input-group textarea {
+    resize: vertical;
+}
+  
+  /* Submit Button Styling */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(234, 164, 131, 0.9);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.submit-btn:hover {
+    background-color: rgba(234, 164, 131, 1);
+}
+
+/* Style the placeholder text font to match the rest of the page */
+.input-group input::placeholder, 
+.input-group textarea::placeholder {
+  font-family: Arial, sans-serif; /* Ensures the placeholder inherits the same font family as the parent */
+}
+
+  
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .team-box {
+    width: calc(50% - 20px);
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-left, .contact-right {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-box {
+    width: 100%;
+  }
+}
+
+
