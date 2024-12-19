@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return locations;
     };
 
+    function clearCardsAndSearch() {
+        document.getElementById('cards-container').innerHTML = "";
+        document.getElementById("search").value = "";
+    }
+
     function search(query) {
         fetch('travel_recommendation_api.json')
             .then(response => response.json())
@@ -156,23 +161,37 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("home_content.html");
         toggleSearchBar("home_content.html");
+        clearCardsAndSearch();
     });
 
     document.getElementById("about-btn").addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("about_content.html");
         toggleSearchBar("about_content.html");
+        clearCardsAndSearch();
     });
 
     document.getElementById("contact-btn").addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("contact_content.html");
         toggleSearchBar("contact_content.html");
+        clearCardsAndSearch();
     });
 
     document.querySelector(".search-button").addEventListener("click", () => {
         const text = document.getElementById("search").value;
         search(text);
+    });
+
+    document.querySelector("#search").addEventListener("keydown", (e) => {
+        if(e.key === "Enter") {
+            const text = document.getElementById("search").value;
+            search(text);
+        }
+    });
+
+    document.querySelector(".clear-button").addEventListener("click", () => {
+        clearCardsAndSearch();
     });
 
     // Load the default content (e.g., Home page) when the page first loads
