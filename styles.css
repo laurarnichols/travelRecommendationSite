@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
-    background: url('city.jpg') no-repeat center center fixed; /* Add 'fixed' for full coverage */
+    background: url('images/city.jpg') no-repeat center center fixed; /* Add 'fixed' for full coverage */
     background-size: cover; /* Ensures the image fills the screen */
     height: 100vh;
     color: white;
@@ -113,8 +113,14 @@ body {
 
 /* Hero Section */
 .hero-section {
-  margin-top: 50px; /* Ensure it doesn't overlap with the navbar */
-  padding: 20px 100px;
+    position: fixed;
+    top: 50px; /* Ensure it doesn't overlap with the navbar */
+    left: 60px;
+    width: 66.66%; /* Hero section takes up 1/3 of the page */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px 30px;
+    z-index: 10; /* Keep it above other elements */
+    overflow: hidden; /* Prevent overflow within the hero section */
 }
 
 .hero-title {
@@ -143,6 +149,82 @@ body {
 
 .book-now:hover {
     background: rgba(255, 159, 105, 1);
+}
+
+/* Cards Section */
+.cards-container-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-left: 57%;
+    width: 40%;
+}
+.cards-container {
+    flex: 1; /* Cards take up 1/3 of the page */
+    display: grid;
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Card Style */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Image adjustments to take up 2/3 of the vertical space */
+.card img {
+    width: 100%;
+    height: 66%; /* 2/3 of the card height */
+    object-fit: cover; /* Ensures cropping if needed */
+}
+
+/* Card Content */
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Location Name Styling */
+.card-name {
+    font-size: 1.2rem; /* Make name smaller */
+    font-weight: bold;
+    color: rgb(48, 61, 96); /* Updated color */
+    margin-bottom: 10px;
+}
+
+/* Description Styling */
+.card-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Visit Button - Slightly smaller */
+.card-button {
+    background-color: #ff8f4f;
+    color: white;
+    padding: 8px 18px; /* Slightly smaller padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Slightly smaller font size */
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #ff9f69;
 }
 
 /* About Us Header */
@@ -266,6 +348,7 @@ body {
 /* Input Group Styling */
 .input-group {
     margin-bottom: 20px;
+    margin-right: 20px;
 }
   
 .input-group label {
