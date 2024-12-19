@@ -50,7 +50,7 @@ body {
 
 .site-name {
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: white;
 }
 
@@ -77,13 +77,14 @@ body {
 }
 
 .search-input {
-  border: none;
-  border-radius: 9999px;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  color: black;
-  background: white;
-  width: 200px;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: black;
+    background: white;
+    width: 200px;
+    display: inline-block;
 }
 
 .search-input::placeholder {
@@ -106,6 +107,26 @@ body {
   background: rgba(173, 135, 98, 1);
 }
 
+.hamburger {
+    display: none; /* Hide the hamburger by default */
+    cursor: pointer;
+}
+  
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+.search-icon {
+    display: none; /* Hide the hamburger by default */
+    cursor: pointer;
+    filter: invert(1);
+    height: 25px;
+}
+
 #main-content {
     position: relative;
     z-index: 1;
@@ -120,7 +141,6 @@ body {
     height: 100vh; /* Full height of the viewport */
     padding: 20px 30px;
     z-index: 10; /* Keep it above other elements */
-    overflow: hidden; /* Prevent overflow within the hero section */
 }
 
 .hero-title {
@@ -414,30 +434,133 @@ body {
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-  .team-box {
-    width: calc(50% - 20px);
-  }
+    .team-box {
+        width: 80%;
+    }
 
-  .contact-container {
-    flex-direction: column;
-  }
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
 
-  .contact-left, .contact-right {
-    flex: 1;
-    width: 100%;
-    padding: 20px;
-  }
+    .contact-left, .contact-right {
+        flex: 1;
+        width: 90%;
+        padding: 20px;
+    }
 
-  .contact-form {
-    width: 100%;
-    max-width: 100%;
-  }
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-section {
+        position: relative; /* Remove fixed position */
+        left: 0;
+        width: 100%; /* Full width */
+        height: auto; /* Allow height to be based on content */
+        padding: 20px;
+        z-index: 10;
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        max-width: 80%;
+    }
+
+    /* Cards Section for Small Screens */
+    .cards-container-wrapper {
+        display: block;
+        margin-left: 3%;
+        width: 90%;
+    }
+
+    .cards-container {
+        width: 100%;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically on small screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+    
+    .nav-links {
+        display: none; /* Hide the nav links initially */
+        flex-direction: column;
+        width: 80%; /* Ensure full-width nav links */
+        align-items: center;
+    }
+    
+    .nav-links.show {
+        display: flex; /* Show nav links when the menu is toggled */
+    }
+    
+    .hamburger {
+        display: block; /* Show the hamburger menu on small screens */
+        position: absolute; /* Position absolutely within the navbar */
+        top: 15px; /* Adjust top positioning if needed */
+        right: 10%; /* Adjust right positioning if needed */
+        z-index: 15; /* Ensure it's above other elements */
+    }
+
+    .search-icon {
+        display: block; /* Show the hamburger menu on small screens */
+        position: absolute; /* Position absolutely within the navbar */
+        top: 15px; /* Adjust top positioning if needed */
+        right: 20%; /* Adjust right positioning if needed */
+        z-index: 15; /* Ensure it's above other elements */
+    }
+    
+    .nav-link {
+        padding: 10px 20px; /* Add padding to make links easier to click */
+        width: 100%;
+        text-align: center; /* Center align the text */
+    }
+
+    .search-bar {
+        display: none;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .search-bar.show {
+        display: flex; /* Show nav links when the menu is toggled */
+    }
+    
+    .search-input {
+        width: 100%; /* Make the search input take full width */
+    }
+    
+    .search-button,
+    .clear-button {
+        width: 30%; /* Make buttons take full width */
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+    
+/* Toggle button state when the menu is active */
+.navbar.active .hamburger-line:nth-child(1) {
+    transform: rotate(-45deg);
+    transform-origin: 7px 7px;
 }
 
-@media (max-width: 480px) {
-  .team-box {
-    width: 100%;
-  }
+.navbar.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.active .hamburger-line:nth-child(3) {
+    transform: rotate(45deg);
+    transform-origin: 7px -7px;
 }
 
 

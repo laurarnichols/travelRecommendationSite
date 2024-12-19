@@ -69,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function search(query) {
+        const searchBar = document.querySelector('.search-bar');
+        
+        if (searchBar.classList.contains("show")) {
+            toggleSearchMenu();
+        }
+        
         fetch('travel_recommendation_api.json')
             .then(response => response.json())
             .then(data => {
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if(data.length === 0) {
             const card = document.createElement('div');
             card.classList.add('no-results');
-            card.textContent = "No results found."
+            card.textContent = "No results found.";
             cardsContainer.appendChild(card);
         } else {
             // Loop through locations
@@ -155,19 +161,46 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle search bar
     function toggleSearchBar(page) {
         const searchBar = document.querySelector(".search-bar");
+        const searchIcon = document.querySelector(".search-icon");
 
         if(page === "home_content.html") {
             searchBar.style.visibility = 'visible';
+            searchIcon.style.visibility = 'visible';
         } else {
             searchBar.style.visibility = 'hidden';
+            searchIcon.style.visibility = 'hidden';
         }
     }
+
+    // Function to toggle the menu on smaller screens
+    function toggleHamburgerMenu() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+        const searchBar = document.querySelector('.search-bar');
+        searchBar.classList.remove('show');
+    }
+
+    function toggleSearchMenu() {
+        const searchBar = document.querySelector('.search-bar');
+        searchBar.classList.toggle('show');
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.remove('active');
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.remove('show');
+    }
+      
 
     // Event listeners for navigation buttons (anchor tags)
     document.getElementById("home-btn").addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("home_content.html");
         toggleSearchBar("home_content.html");
+        const navbar = document.querySelector('.navbar');
+        if (navbar.classList.contains('active')) {
+            toggleHamburgerMenu();
+        }
         clearCardsAndSearch();
     });
 
@@ -175,6 +208,10 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("about_content.html");
         toggleSearchBar("about_content.html");
+        const navbar = document.querySelector('.navbar');
+        if (navbar.classList.contains('active')) {
+            toggleHamburgerMenu();
+        }
         clearCardsAndSearch();
     });
 
@@ -182,6 +219,10 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("contact_content.html");
         toggleSearchBar("contact_content.html");
+        const navbar = document.querySelector('.navbar');
+        if (navbar.classList.contains('active')) {
+            toggleHamburgerMenu();
+        }
         clearCardsAndSearch();
     });
 
@@ -199,6 +240,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".clear-button").addEventListener("click", () => {
         clearCardsAndSearch();
+    });
+
+    document.querySelector(".hamburger").addEventListener("click", () => {
+        toggleHamburgerMenu();
+    });
+
+    document.querySelector(".search-icon").addEventListener("click", () => {
+        toggleSearchMenu();
     });
 
     // Load the default content (e.g., Home page) when the page first loads
