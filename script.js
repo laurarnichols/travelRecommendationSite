@@ -136,12 +136,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return card;
         };
-
-        // Loop through locations
-        data.forEach(location => {
-            const card = createCard(location);
+        if(data.length === 0) {
+            const card = document.createElement('div');
+            card.classList.add('no-results');
+            card.textContent = "No results found."
             cardsContainer.appendChild(card);
-        });
+        } else {
+            // Loop through locations
+            data.forEach(location => {
+                const card = createCard(location);
+                cardsContainer.appendChild(card);
+            });
+        }
+        
     }
 
 
