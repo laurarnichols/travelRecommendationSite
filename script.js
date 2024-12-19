@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("home-btn").addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default anchor behavior
         loadContent("home_content.html");
-        loadCards();
         toggleSearchBar("home_content.html");
     });
 
