@@ -1,6 +1,7 @@
 # Travel Recommendation Web Application
+[_Check out the deployed solution on GitHub pages_](https://laurarnichols.github.io/travelRecommendationSite/)
 
-This project was developed as part of a Coursera class on JavaScript. The goal of the assignment was to create a fully functional travel recommendation web application using only built-in functionality in HTML, CSS, and JavaScript. Inspiration images for the Home, About Us, and Contact Us pages were provided as part of the assignment, but all actual implementation, including sourcing and styling images, was completed independently.
+This project was developed as part of a Coursera class on JavaScript. The goal of the assignment was to create a fully functional travel recommendation web application using only built-in functionality in HTML, CSS, and JavaScript. Inspiration images for the Home, About Us, and Contact Us pages were provided as part of the assignment, but all actual implementation, including sourcing and styling images, was completed independently. 
 
 ---
 
